@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: flask-app-cg
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: flask-cg
@@ -17,7 +17,7 @@ spec:
         image: flask-cg:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000
+        - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
