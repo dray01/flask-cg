@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
+  name: flask-app-cg
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: flask-hub
+      app: flask-cg
   template:
     metadata:
       labels:
-        app: flask-hub
+        app: flask-cg
     spec:
       containers:
-      - name: flask-hub
-        image: flask-hub:latest
+      - name: flask-cg
+        image: flask-cg:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-hub-service
+  name: flask-cg-service
 spec:
   selector:
-    app: flask-hub
+    app: flask-cg
   ports:
     - protocol: TCP
       port: 80
